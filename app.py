@@ -207,7 +207,9 @@ def main():
 
             fig = bt.plot()
             html_div = file_html(fig, CDN, "my_plot")
-            html(html_div, width=700, height=500, scrolling=False)
+            html(html_div, width=1400, height=1024, scrolling=False)
+
+            st.dataframe(stats)
 
 
 if __name__ == "__main__":
