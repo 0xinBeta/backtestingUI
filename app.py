@@ -5,6 +5,9 @@ from backtesting import Backtest
 from backtesting.lib import Strategy
 from finta import TA
 from ta.trend import adx
+from bokeh.resources import CDN
+from bokeh.embed import file_html
+from streamlit.components.v1 import html
 
 # Constants for default parameters and configuration
 DEFAULT_CASH = 100_000
@@ -203,8 +206,8 @@ def main():
             )
 
             fig = bt.plot()
-            st.pyplot(fig)
-            st.dataframe(stats)
+            html_div = file_html(fig, CDN, "my_plot")
+            html(html_div, width=700, height=500, scrolling=False)
 
 
 if __name__ == "__main__":
