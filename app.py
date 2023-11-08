@@ -202,7 +202,8 @@ def main():
                 method='grid'
             )
 
-            bt.plot()
+            fig = bt.plot()
+            st.pyplot(fig)
             st.dataframe(stats)
 
 
