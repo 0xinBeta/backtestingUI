@@ -205,11 +205,15 @@ def main():
                 method='grid'
             )
 
+            
             fig = bt.plot()
-            html_div = file_html(fig, CDN, "my_plot")
-            html(html_div, width=1400, height=1024, scrolling=False)
+            # Center the plot in the main area
+            st.write('## Strategy Plot', unsafe_allow_html=True)
+            st.bokeh_chart(fig, use_container_width=True)  # This will make it responsive
 
-            st.dataframe(stats)
+            # Display stats dataframe with full width
+            st.write('## Strategy Stats', unsafe_allow_html=True)
+            st.dataframe(stats, width=None, height=None)
 
 
 if __name__ == "__main__":
